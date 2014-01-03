@@ -2,6 +2,7 @@
 import os
 
 app = {
+    "name": "My Default App",
     "path": os.path.dirname(__file__)
 }
 
