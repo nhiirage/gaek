@@ -13,4 +13,5 @@ app = WSGIApplication(
 )
 
 if not ah_settings.debug:
-    app.error_handlers[404] = 
+    app.error_handlers[404] = error_handlers.HTTP_404
+    app.error_handlers[500] = error_handlers.HTTP_500
