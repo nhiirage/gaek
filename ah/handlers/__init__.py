@@ -1,3 +1,4 @@
 __all__ = [
-    "error_handlers"
+    "error_handlers",
+    "admin_handler"
 ]
