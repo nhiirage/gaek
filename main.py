@@ -19,7 +19,7 @@ app = WSGIApplication(
     app_routes,
     debug = ah_settings.debug,
     config = ah_settings.config
-)
+) 
 
 if not ah_settings.debug:
     # bad request
