@@ -13,5 +13,13 @@ app = WSGIApplication(
 )
 
 if not ah_settings.debug:
+    # bad request
+    app.error_handlers[400] = error_handlers.HTTP_400
+    # unauthorized 
+    app.error_handlers[401] = error_handlers.HTTP_401
+    # forbidden
+    app.error_handlers[403] = error_handlers.HTTP_403
+    # not found
     app.error_handlers[404] = error_handlers.HTTP_404
+    # internal server error
     app.error_handlers[500] = error_handlers.HTTP_500

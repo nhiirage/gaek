@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Untitled{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <title>{% block title %} Untitled Error Page {% endblock %}</title>
 </head>
 <body>
-
+{% block content %} Content Not Found {% endblock %}
+<script type="text/javascript">
+    function downloadJSAtOnload() {
+        var element = document.createElement("script");
+        element.src = "/assets/js/ah_core.js";
+        document.body.appendChild(element);
+    }
+    if (window.addEventListener) window.addEventListener("load", downloadJSAtOnload, false);
+    else if (window.attachEvent) window.attachEvent("onload", downloadJSAtOnload);
+    else window.onload = downloadJSAtOnload;
+</script>
 </body>
 </html>
