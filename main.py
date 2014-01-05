@@ -5,12 +5,12 @@ from webapp2 import WSGIApplication, Route
 from webapp2_extras.routes import PathPrefixRoute, RedirectRoute, DomainRoute
 
 ah_routes = [
-    Route(r'/ah', handler = admin_handler.AdminHandler, name='admin'),
-    PathPrefixRoute(r'/ah',
+    RedirectRoute(r'/ah/', handler = admin_handler.AdminHandler, name='admin', strict_slash=True),
+    PathPrefixRoute(r'/<page>',
         [
-            Route('r/<page>', handler = admin_handler.AdminHandler),
-            Route('r/<page>/<kind>', handler = admin_handler.AdminHandler),
-            Route('r/<page>/<kind>/<id>', handler = admin_handler.AdminHandler),
+            Route('r/', handler = admin_handler.AdminHandler),
+            Route('r/<kind>', handler = admin_handler.AdminHandler),
+            Route('r/<kind>/<id>', handler = admin_handler.AdminHandler),
         ]
     )
 ]
