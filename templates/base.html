@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>{% block title %} Untitled {% endblock %}</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function downloadJSAtOnload() {
+            var element = document.createElement("script");
+            element.src = "/assets/js/core.js";
+            document.body.appendChild(element);
+        }
+        if (window.addEventListener) window.addEventListener("load", downloadJSAtOnload, false);
+        else if (window.attachEvent) window.attachEvent("onload", downloadJSAtOnload);
+        else window.onload = downloadJSAtOnload;
+    </script>
+</body>
+</html>

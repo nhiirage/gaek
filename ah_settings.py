@@ -14,4 +14,4 @@ config['webapp2_extras.sessions'] = {
 debug = True
 
 # if __name__ == "__main__":
-#     print app.get("path")
+#     pass
