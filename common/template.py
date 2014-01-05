@@ -9,3 +9,6 @@ class Jinja:
 
     def render(self, context={}):
         return self.template.render(context)
+
+
+# Sample 
