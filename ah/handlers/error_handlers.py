@@ -26,6 +26,12 @@ def HTTP_404(request, response, exception):
     response.out.write("404 Not Found")
     response.set_status(404)
 
+# not allowed
+def HTTP_405(request, response, exception):
+    response.out.write("405 Not Allowed")
+    response.set_status(405)
+
+
 # internal server error
 def HTTP_500(request, response, exception):
     response.out.write("500 Internal Server Error")

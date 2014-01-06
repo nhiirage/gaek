@@ -6,11 +6,11 @@ from webapp2_extras.routes import PathPrefixRoute, RedirectRoute, DomainRoute
 
 ah_routes = [
     RedirectRoute(r'/ah/', handler = admin_handler.AdminHandler, name='admin', strict_slash=True),
-    PathPrefixRoute(r'/<page>',
+    PathPrefixRoute(r'/ah/<page>',
         [
-            Route('r/', handler = admin_handler.AdminHandler),
-            Route('r/<kind>', handler = admin_handler.AdminHandler),
-            Route('r/<kind>/<id>', handler = admin_handler.AdminHandler),
+            Route(r'/', handler = admin_handler.AdminHandler),
+            Route(r'/<kind>', handler = admin_handler.AdminHandler),
+            Route(r'/<kind>/<id>', handler = admin_handler.AdminHandler),
         ]
     )
 ]
@@ -37,5 +37,7 @@ if not ah_settings.debug:
     app.error_handlers[403] = error_handlers.HTTP_403
     # not found
     app.error_handlers[404] = error_handlers.HTTP_404
+    # not allowed
+    app.error_handlers[405] = error_handlers.HTTP_405
     # internal server error
     app.error_handlers[500] = error_handlers.HTTP_500
