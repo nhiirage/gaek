@@ -14,3 +14,5 @@ config['webapp2_extras.sessions'] = {
 }
 
 debug = True
+
+enable_admin = True

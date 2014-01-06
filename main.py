@@ -4,23 +4,23 @@ from ah.handlers import *
 from webapp2 import WSGIApplication, Route
 from webapp2_extras.routes import PathPrefixRoute, RedirectRoute, DomainRoute
 
-ah_routes = [
-    RedirectRoute(r'/ah/', handler = admin_handler.AdminHandler, name='admin', strict_slash=True),
-    PathPrefixRoute(r'/ah/<page>',
-        [
-            Route(r'/', handler = admin_handler.AdminHandler),
-            Route(r'/<kind>', handler = admin_handler.AdminHandler),
-            Route(r'/<kind>/<id>', handler = admin_handler.AdminHandler),
-        ]
-    )
-]
-
 app_routes = [   
-    Route(r'/', handler = home_handler.HomeHandler, name='home'),
+    Route(r'/', home_handler.HomeHandler, 'home'),
 ]
 
+ah_routes = [
+    RedirectRoute(r'/ah/', admin_handler.AdminHandler, 'admin', strict_slash=True),
+    PathPrefixRoute('/ah/<page>', 
+        [
+            Route(r'/', admin_handler.AdminHandler, 'page'),
+            Route(r'/<kind>', admin_handler.AdminHandler, 'page-kind'),
+            Route(r'/<kind>/<id>', admin_handler.AdminHandler, 'page-kind-id'),
+        ]
+    ),
+]
 
-app_routes.extend(ah_routes)
+if ah_settings.enable_admin:
+    app_routes.extend(ah_routes)
 
 app = WSGIApplication(
     app_routes,
