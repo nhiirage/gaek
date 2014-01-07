@@ -4,6 +4,9 @@ import os
 app = {
     "name": "My Default App",
     "path": os.path.dirname(__file__)
+    "buckets": [
+            "gaek-trash",
+        ]
 }
 
 # Generated secret key using 

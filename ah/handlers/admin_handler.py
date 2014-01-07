@@ -1,11 +1,7 @@
-import webapp2
 from common import session, template
+from google.appengine.ext.webapp import blobstore_handlers
 
 
 class AdminHandler(session.SessionRequestHandler):
-    def get(self, page=None):
-        View = template.Jinja("/ah/templates/pages/dashboard")
-        if page:
-            self.response.out.write(View.render())
-        else:
-            self.response.out.write(page)
+    def get(self, **routes):
+        self.response.out.write("Inside Admin")

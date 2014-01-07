@@ -1,4 +1,5 @@
-application: gae-kit # gaek
+# gaek
+application: gae-kit
 version: 1
 runtime: python27
 api_version: 1
@@ -8,10 +9,6 @@ threadsafe: true
 handlers:
 - url: .*
   script: main.app
-
-- url: /ah/.*
-  script: main.app
-  secure: always
 
 - url: /assets
   static_dir: assets
