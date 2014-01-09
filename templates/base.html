@@ -3,13 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock%}">
+    <meta name="description" content="{% block meta_description%}{% endblock %}">
     <title>{% block title %} Untitled {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
 </head>
 <body>
+    {% block content %}{% endblock %}
     <script type="text/javascript">
         function downloadJSAtOnload() {
             var element = document.createElement("script");
             element.src = "/assets/js/core.js";
+            element.src = "/assets/js/ah_core.js";
             document.body.appendChild(element);
         }
         if (window.addEventListener) window.addEventListener("load", downloadJSAtOnload, false);

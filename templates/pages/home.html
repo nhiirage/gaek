@@ -1,0 +1,18 @@
+{% extends '/templates/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="container">
+        <form method="post" action="/" enctype="multipart/form-data">
+            <fieldset>
+                <input type="file" name="file">
+
+                <input name="text1" value="2">
+                <input name="text1" value="3">
+                <input name="text1" value="4">
+                <input name="text1" value="5">
+
+                <input type="submit" name="asdfaf" value="Submit">
+            </fieldset>
+        </form>    
+    </div>
+{% endblock %}

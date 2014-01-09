@@ -1,5 +1,4 @@
 import ah_settings
-from cloudstorage import gcs
 from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import blobstore_handlers
 

@@ -10,9 +10,10 @@ app_routes = [
 
 ah_routes = [
     RedirectRoute(r'/ah/', admin_handler.AdminHandler, 'admin', strict_slash=True),
-    PathPrefixRoute('/ah', 
+    PathPrefixRoute(r'/ah', 
         [
-            PathPrefixRoute('/<page>',
+            RedirectRoute(r'/auth', auth_handler.AuthHandler, 'auth', strict_slash=True),
+            PathPrefixRoute(r'/<page>',
                 [
                     RedirectRoute(r'/', admin_handler.AdminHandler, 'page', strict_slash=True),
                     RedirectRoute(r'/<kind>', admin_handler.AdminHandler, 'page-kind', strict_slash=True),

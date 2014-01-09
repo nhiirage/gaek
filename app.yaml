@@ -3,16 +3,15 @@ application: gae-kit
 version: 1
 runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: yes
 
 
 handlers:
-- url: .*
-  script: main.app
-
 - url: /assets
   static_dir: assets
 
+- url: .*
+  script: main.app
 
 libraries:
 - name: "webapp2"
