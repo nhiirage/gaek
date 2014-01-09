@@ -1,6 +1,5 @@
 # !/usr/bin python
 import os
-import sys
 
 app = {
     "name": "My Default App",
@@ -9,8 +8,6 @@ app = {
             "gaek-trash",
         ]
 }
-
-sys.path.append(app.get("path") + '/src/cloudstorage')
 
 # Generated secret key using 
 # hashlib.sha384("some_string".encode('ascii', 'xmlcharrefreplace')).hexdigest()

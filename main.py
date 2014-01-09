@@ -4,10 +4,12 @@ from ah.handlers import *
 from webapp2 import WSGIApplication, Route
 from webapp2_extras.routes import PathPrefixRoute, RedirectRoute, DomainRoute
 
-app_routes = [   
+app_routes = [
     Route(r'/', home_handler.HomeHandler, 'home'),
 ]
 
+# DO NOT OVERRIDE 
+# This is gaek specific routes
 ah_routes = [
     RedirectRoute(r'/ah/', admin_handler.AdminHandler, 'admin', strict_slash=True),
     PathPrefixRoute(r'/ah', 

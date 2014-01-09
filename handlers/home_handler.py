@@ -15,7 +15,7 @@ class HomeHandler(webapp2.RequestHandler):
 
     def post(self):
         self.response.headers["x-goog-project-id"] = "530140140149"
-        # self.response.headers["x-goog-acl"] = "public-read-write"
+        self.response.headers["x-goog-acl"] = "public-read-write"
         file_to_write = self.request.get("file")
         with cloudstorage.open('/geak-trash/20130314_142004.jpg', "w", "image/jpeg", options={'x-goog-acl': 'public-read-write'}) as gcsfile:
             gcsfile.write(file_to_write)
