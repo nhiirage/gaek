@@ -4,12 +4,8 @@ from ah.handlers import *
 from webapp2 import WSGIApplication, Route
 from webapp2_extras.routes import PathPrefixRoute, RedirectRoute, DomainRoute
 
-app_routes = [
-    Route(r'/', home_handler.HomeHandler, 'home'),
-]
-
 # DO NOT OVERRIDE 
-# This is gaek specific routes
+# These are cms specific routes
 ah_routes = [
     RedirectRoute(r'/ah/', admin_handler.AdminHandler, 'admin', strict_slash=True),
     PathPrefixRoute(r'/ah', 
@@ -24,6 +20,11 @@ ah_routes = [
             )
         ]
     ),
+]
+
+# APP ROUTES GOES HERE
+app_routes = [
+    Route(r'/', home_handler.HomeHandler, 'home'),
 ]
 
 if ah_settings.enable_admin:
