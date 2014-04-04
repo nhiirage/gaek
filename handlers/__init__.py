@@ -1,3 +1,4 @@
 __all__ = [
-    'home_handler'
+    'gcs_handler',
+    'home_handler',
 ]

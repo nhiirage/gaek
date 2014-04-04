@@ -4,7 +4,8 @@ from common import template
 
 class AuthHandler(session.SessionRequestHandler):
     def get(self):
-        self.response.out.write("GET Auth Handler")
+        # View.template()
+        pass
 
     def post(self):
         self.response.out.write("POST Auth Handler")

@@ -1,6 +1,6 @@
 from google.appengine.ext import ndb
 
 
-class BaseModel(ndb.Model):
-    date_created  = ndb.DateTimeProperty()
-    date_modified = ndb.DateTimeProperty() 
+class Model(ndb.Model):
+    date_created  = ndb.DateTimeProperty(auto_now_add=True)
+    date_modified = ndb.DateTimeProperty(auto_now=True) 

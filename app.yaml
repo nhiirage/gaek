@@ -10,6 +10,9 @@ handlers:
 - url: /assets
   static_dir: assets
 
+- url: /ah.*
+  script: main.app
+
 - url: .*
   script: main.app
 

@@ -11,5 +11,9 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 
 class DownloadHandler(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self, key):
-        BlobKey = blobstore.BlobKey()
-        Blob = blobstore.BlobInfo()
+        BlobKey = blobstore.BlobKey(key)
+        Blob = blobstore.BlobInfo(BlobKey)
+        self.send_blob(Blob, save_as='')
+
+# BlobInfo
+# filename, size, creation, content_type
