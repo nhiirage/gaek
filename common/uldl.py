@@ -1,6 +1,6 @@
-import ah_settings
 from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import blobstore_handlers
+import app_config
 
 
 class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):

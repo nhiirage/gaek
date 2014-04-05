@@ -1,8 +1,8 @@
-import ah_settings
 from handlers import *
 from ah.handlers import *
 from webapp2 import WSGIApplication, Route
 from webapp2_extras.routes import PathPrefixRoute, RedirectRoute, DomainRoute
+import app_config
 
 # DO NOT OVERRIDE 
 # These are cms specific routes
@@ -27,16 +27,16 @@ app_routes = [
     Route(r'/', home_handler.HomeHandler, 'home'),
 ]
 
-if ah_settings.enable_admin:
+if app_config.enable_admin:
     app_routes.extend(ah_routes)
 
 app = WSGIApplication(
     app_routes,
-    debug = ah_settings.debug,
-    config = ah_settings.config
+    debug = app_config.debug,
+    config = app_config.config
 )
 
-if not ah_settings.debug:
+if not app_config.debug:
     # bad request
     app.error_handlers[400] = error_handlers.HTTP_400
     # unauthorized 
