@@ -1,9 +1,9 @@
-import ah_settings
+import app_config
 
-# HTTP errors will only be called when ah_settings.debug is True. 
+# HTTP errors will only be called when app_config.debug is True. 
 
 context = {
-    "appname": ah_settings.app.get("name")
+    "appname": app_config.app.get("name")
 }
 
 # bad request
